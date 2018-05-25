@@ -1,1 +1,3 @@
-console.log('Stix');
+const events = require('./events');
+
+events();
