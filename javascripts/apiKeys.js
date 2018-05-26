@@ -1,3 +1,5 @@
+const weather = require('./weather');
+
 const apiKeys = () => {
   return new Promise((resolve, reject) => {
     $.ajax('./db/apiKeys.json')
@@ -13,6 +15,7 @@ const apiKeys = () => {
 const retrieveKeys = () => {
   apiKeys()
     .then((results) => {
+      weather.setKey(results);
     })
     .catch((err) => {
       console.error('error while retrieving keys', err);
