@@ -10,6 +10,8 @@
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
 </head>
+
+
 <body class="text-center">
 
   <nav class="navbar navbar-default">
@@ -28,14 +30,16 @@
 
       <form id="form-event" class="navbar-form navbar-nav navbar-right">
         <div class="form-group">
-          <input id ="input-field" type="text" class="form-control input" placeholder="Search by Zipcode...">
+          <input id ="input-field" type="text" class="form-control" placeholder="Search by Zipcode...">
         </div>
-        <button id="search-button" type="submit" class="btn btn-default button">Search</button>
+        <button id="search-button" type="submit" class="btn btn-default">Search</button>
       </form>
   </div>
   </nav>
 
 <h1>Local Weather</h1>
+
+<div id ="weather"></div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
