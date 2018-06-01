@@ -15,7 +15,7 @@ const apiKeys = () => {
 const retrieveKeys = () => {
   apiKeys()
     .then((results) => {
-      weather.setKey(results);
+      weather.setKey(results.weather.apiKey);
     })
     .catch((err) => {
       console.error('error while retrieving keys', err);
