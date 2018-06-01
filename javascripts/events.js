@@ -1,18 +1,19 @@
 const buttonEvent = () => {
   $('#search-button').on('click', (e) => {
-    console.error('ive been pushed', e);
+  // console.error ('did i press something?', e);
   });
 };
 
 const searchEvent = () => {
   $('input').on('keypress', (e) => {
-    console.error('grasp what I just typed?', e);
+
+    // console.error('grasp what I just typed?', e);
   });
 };
 
-const initializer = () => {
+const navEvents = () => {
   buttonEvent();
   searchEvent();
 };
 
-module.exports = initializer;
+module.exports = navEvents;
