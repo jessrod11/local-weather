@@ -1,4 +1,5 @@
 const weatherDiv = $('#weather');
+const singleWeatherDiv = $('#jumboWeather');
 
 const domString = (weatherArray) => {
   let weatherString = '';
@@ -22,10 +23,31 @@ const domString = (weatherArray) => {
   printToDom(weatherString);
 };
 
+const singleWeatherDom = (singleWeather) => {
+  let singleString = '';
+  singleWeather.forEach((weather) => {
+    singleString += `<div class="jumbotron">`;
+    singleString += `<h1>City Name: ${weather.name}</h1>`;
+    singleString += `<h2>Temperature: ${weather.temp}</h2>`;
+    singleString += `<h2>Description: ${weather.description}</h2>`;
+    singleString += `<h3>Pressure: ${weather.pressure}</h3>`;
+    singleString += `<h3>Humidity: ${weather.humidity}</h3>`;
+    singleString += `<h3>Humidity: ${weather.wind_speed}</h3>`;
+    singleString += `<p><a class="btn btn-primary btn-lg" href="#" role="button">5 Day Forecast</a></p>`;
+    singleString += `</div>`;
+  });
+  newPrintToDom(singleString);
+};
+
 const printToDom = (stringz) => {
   weatherDiv.html(stringz);
 };
 
+const newPrintToDom = (stringz) => {
+  singleWeatherDiv.html(stringz);
+};
+
 module.exports = {
   domString,
+  singleWeatherDom,
 };

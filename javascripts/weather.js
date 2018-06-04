@@ -39,11 +39,16 @@ const singleNashWeather =  {
   wind_speed: 11.41,
 };
 
+const showSingleWeather = () => {
+  dom.singleWeatherDom([singleNashWeather,]);
+};
+
 const showWeatherResults = () => {
   dom.domString([singleNashWeather, singleNashWeather, singleNashWeather, singleNashWeather,]);
 };
 
 module.exports = {
+  showSingleWeather,
   showWeatherResults,
   // setKey,
 };

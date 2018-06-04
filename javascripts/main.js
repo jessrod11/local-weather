@@ -2,6 +2,7 @@
 // const retrieveKeys = require('./apiKeys');
 const weather = require ('./weather');
 
+weather.showSingleWeather();
 weather.showWeatherResults();
 
 // events();
