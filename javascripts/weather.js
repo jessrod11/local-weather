@@ -23,32 +23,14 @@ const grabWeather = (txt) => {
 const showWeatherResults = (searchText) => {
   grabWeather(searchText)
     .then((results) => {
-      dom.domString(results);
+      dom.singleWeatherDom(results);
     })
     .catch((err) => {
       console.error('error in show weather results', err);
     });
 };
 
-// const singleNashWeather =  {
-//   name: 'Nashville',
-//   description: 'scattered clouds',
-//   temp: 87.35,
-//   pressure: 1013,
-//   humidity: 62,
-//   wind_speed: 11.41,
-// };
-
-// const showSingleWeather = () => {
-//   dom.singleWeatherDom([singleNashWeather,]);
-// };
-
-// const showWeatherResults = () => {
-//   dom.domString([singleNashWeather, singleNashWeather, singleNashWeather, singleNashWeather,]);
-// };
-
 module.exports = {
   setKey,
-  // showSingleWeather,
   showWeatherResults,
 };
