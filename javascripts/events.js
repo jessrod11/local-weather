@@ -1,18 +1,22 @@
-const buttonEvent = () => {
-  $('#search-button').on('click', (e) => {
-  // console.error ('did i press something?', e);
-  });
-};
+const weather = require ('./weather');
+
+// const buttonEvent = () => {
+//   $('#search-button').on('click', (e) => {
+//     weather.showSingleWeather();
+
+//   });
+// };
 
 const searchEvent = () => {
-  $('input').on('keypress', (e) => {
-
-    // console.error('grasp what I just typed?', e);
+  $(document).keypress((e) => {
+    if (e.key === 'Enter') {
+      weather.showWeatherResults('37025');
+    }
   });
 };
 
 const navEvents = () => {
-  buttonEvent();
+  // buttonEvent();
   searchEvent();
 };
 
