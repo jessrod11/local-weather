@@ -8,9 +8,9 @@ const dom  = require('./dom');
 //   weatherKey = key;
 // };
 
-// const grabWeather = () => {
+// const grabWeather = (txt) => {
 //   return new Promise((resolve, reject) => {
-//     $.ajax(`http://api.openweathermap.org/data/2.5/weather?q=37211,us&appid=${weatherKey}&units=imperial`)
+//     $.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${txt},us&appid=${weatherKey}&units=imperial`)
 //       .done((data) => {
 //         resolve(data);
 //       })
@@ -48,7 +48,7 @@ const showWeatherResults = () => {
 };
 
 module.exports = {
+  // setKey,
   showSingleWeather,
   showWeatherResults,
-  // setKey,
 };
