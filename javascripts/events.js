@@ -2,6 +2,7 @@ const weather = require ('./weather');
 
 const buttonEvent = () => {
   $('#search-button').on('click', (e) => {
+    // const zipcode = $('#searchBar').val().replace(' ', '%20');
     weather.showWeatherResults('38125');
 
   });
