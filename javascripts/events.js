@@ -1,24 +1,41 @@
 const weather = require ('./weather');
 
 const buttonEvent = () => {
-  $('#search-button').on('click', (e) => {
-    // const zipcode = $('#searchBar').val().replace(' ', '%20');
-    weather.showWeatherResults('38125');
-
+  $('#search-button').on('click', () => {
+    const zipcode = $('#input-field').val();
+    weather.showCurrentWeatherResults(zipcode);
   });
 };
 
-// const searchEvent = () => {
-//   $(document).keypress((e) => {
-//     if (e.key === 'Enter') {
-//       weather.showWeatherResults('38125');
-//     }
-//   });
-// };
+const fiveDayBtn = () => {
+  $(document).on('click', '#fivedayBtn', (e) => {
+    const zipcode = $('#input-field').val();
+    weather.showFiveDayResults(zipcode);
+  });
+};
+
+const searchEvent = () => {
+  $(document).keypress((e) => {
+    if (e.key === 'Enter') {
+      const zipcode = $('#input-field').val();
+      weather.showCurrentWeatherResults(zipcode);
+    }
+  });
+};
+
+const currentDayBtn = () => {
+  $(document).on('click', '.currentdayBtns', (e) => {
+    $('#weather').addClass('hide');
+  });
+};
 
 const navEvents = () => {
   buttonEvent();
-  // searchEvent();
+  fiveDayBtn();
+  searchEvent();
+  currentDayBtn();
 };
 
-module.exports = navEvents;
+module.exports = {
+  navEvents,
+};
