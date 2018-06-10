@@ -1,5 +1,4 @@
 /* eslint camelcase: 0 */
-
 const dom  = require('./dom');
 
 let weatherKey =  '';
@@ -8,7 +7,7 @@ const setKey = (key) => {
   weatherKey = key;
 };
 
-const grabWeather = (txt) => {
+const currentWeather = (txt) => {
   return new Promise((resolve, reject) => {
     $.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${txt},us&appid=${weatherKey}&units=imperial`)
       .done((data) => {
@@ -20,35 +19,40 @@ const grabWeather = (txt) => {
   });
 };
 
-const showWeatherResults = (searchText) => {
-  grabWeather(searchText)
+const showCurrentWeatherResults = (searchText) => {
+  currentWeather(searchText)
     .then((results) => {
-      dom.domString(results);
+      dom.singleWeatherDom(results);
     })
     .catch((err) => {
       console.error('error in show weather results', err);
     });
 };
 
-// const singleNashWeather =  {
-//   name: 'Nashville',
-//   description: 'scattered clouds',
-//   temp: 87.35,
-//   pressure: 1013,
-//   humidity: 62,
-//   wind_speed: 11.41,
-// };
+const fiveDayForecast = (txt) => {
+  return new Promise ((resolve , reject) => {
+    $.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${txt},us&appid=${weatherKey}&units=imperial`)
+      .done((data) => {
+        resolve(data);
+      })
+      .fail((err) => {
+        reject(err);
+      });
+  });
+};
 
-// const showSingleWeather = () => {
-//   dom.singleWeatherDom([singleNashWeather,]);
-// };
-
-// const showWeatherResults = () => {
-//   dom.domString([singleNashWeather, singleNashWeather, singleNashWeather, singleNashWeather,]);
-// };
+const showFiveDayResults = (searchTxt) => {
+  fiveDayForecast(searchTxt)
+    .then((results) => {
+      dom.domString(results);
+    })
+    .catch((err) => {
+      console.error('error in five day results', err);
+    });
+};
 
 module.exports = {
   setKey,
-  // showSingleWeather,
-  showWeatherResults,
+  showCurrentWeatherResults,
+  showFiveDayResults,
 };
