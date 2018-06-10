@@ -34,7 +34,7 @@ const domString = (weatherArray) => {
   printToDom('#weather', weatherString);
 };
 
-const savedDomString = (weatherArray) => {
+const savedDomString = (weatherArray, myCollectionMode = false) => {
   let weatherString = '';
   weatherArray.forEach((weather) => {
     weatherString += `<div class="col-sm-6 col-md-4 text-center weather">`;
@@ -44,6 +44,9 @@ const savedDomString = (weatherArray) => {
     weatherString += `<h2 class="description">${weather.condition}</h2>`;
     weatherString += `<h3 class="pressure">${weather.pressure}</h3>`;
     weatherString += `<h3 class="wind">Wind Speed: ${weather.wind}</h3>`;
+    if (!myCollectionMode) { // says if myColletion is true, opposite of argument above
+      weatherString += `<p><a class="btn btn-warning" role="button">?</a> <a class="btn btn-danger" role="button">Delete</a></p>`;
+    }
     weatherString += `</div>`;
     weatherString += `</div>`;
     weatherString += `</div>`;
