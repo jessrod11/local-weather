@@ -11,6 +11,7 @@ const fiveDayBtn = () => {
   $(document).on('click', '#fivedayBtn', (e) => {
     const zipcode = $('#input-field').val();
     weather.showFiveDayResults(zipcode);
+    $('#jumboWeather').addClass('hide');
   });
 };
 
@@ -26,6 +27,7 @@ const searchEvent = () => {
 const currentDayBtn = () => {
   $(document).on('click', '.currentdayBtns', (e) => {
     $('#weather').addClass('hide');
+    $('#jumboWeather').removeClass('hide');
   });
 };
 
