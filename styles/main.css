@@ -9,3 +9,11 @@ html {
 body {
   font-family: 'Concert One', cursive;
 }
+
+.navbar{
+  background-color: #007b4a;
+}
+
+.navbar-default {
+  border-color: #007b4a;
+}

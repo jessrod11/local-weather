@@ -20,7 +20,7 @@ const domString = (weatherArray) => {
   weatherString += `<h1>City Name: ${weatherArray.city.name}</h1>`;
   weatherArray.list.forEach((weather, i) => {
     if (i % 8 === 0) {
-      weatherString += `<div class="col-sm-6 col-md-4  text-center">`;
+      weatherString += `<div class="col-sm-6 col-md-4 text-center weather">`;
       weatherString += `<div class="thumbnail">`;
       weatherString += `<div class="caption">`;
       weatherString += `<h2>Temperature: ${weather.main.temp}</h2>`;
@@ -28,13 +28,13 @@ const domString = (weatherArray) => {
       weatherString += `<h3> Air Pressure: ${weather.main.pressure}</h3>`;
       weatherString += `<h3>Wind Speed: ${weather.wind.speed}</h3>`;
       weatherString += `<p><a class="btn btn-primary btn-lg currentdayBtns" role="button">Current Day</a></p>`;
+      weatherString += `<p><a class="btn btn-warning btn-lg addWeatherToSaved" role="button">Save</a></p>`;
       weatherString += `</div>`;
       weatherString += `</div>`;
       weatherString += `</div>`;
     };
   });
   printToDom(weatherString);
-
 };
 
 const printToDom = (stringz) => {

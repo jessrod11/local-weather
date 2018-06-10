@@ -1,4 +1,5 @@
 const weather = require ('./weather');
+// const firebaseApi = require('./firebaseApi');
 
 const buttonEvent = () => {
   $('#search-button').on('click', () => {
@@ -31,11 +32,21 @@ const currentDayBtn = () => {
   });
 };
 
+// const saveWeatherEvent = () => {
+//   $(document).on('click', '.addWeatherToSaved' , (e) => {
+//     const weatherToSave = $(e.target).closest('.movie');
+//     const weatherToAdd = {
+//       title:
+//     }
+//   })
+// };
+
 const navEvents = () => {
   buttonEvent();
   fiveDayBtn();
   searchEvent();
   currentDayBtn();
+  // saveWeatherEvent();
 };
 
 module.exports = {
