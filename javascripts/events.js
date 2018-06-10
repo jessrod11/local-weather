@@ -1,5 +1,14 @@
 const weather = require ('./weather');
 const firebaseApi = require('./firebaseApi');
+const dom = require('./dom');
+
+const homeEvent = () => {
+  $(document).on('click', '#weatherHome', (e) => {
+    $('#weather').addClass('hide');
+    $('#jumboWeather').addClass('hide');
+    $('#savedWeather').addClass('hide');
+  });
+};
 
 const buttonEvent = () => {
   $('#search-button').on('click', () => {
@@ -29,6 +38,16 @@ const currentDayBtn = () => {
   $(document).on('click', '.currentdayBtns', (e) => {
     $('#weather').addClass('hide');
     $('#jumboWeather').removeClass('hide');
+    $('#savedWeather').addClass('hide');
+  });
+};
+
+const savedForecastBtn = () => {
+  $(document).on('click','#saved-button', (e) => {
+    $('#weather').addClass('hide');
+    $('#jumboWeather').addClass('hide');
+    $('#savedWeather').removeClass('hide');
+    grabSavedWeatherEvent();
   });
 };
 
@@ -46,12 +65,24 @@ const saveWeatherEvent = () => {
   });
 };
 
+const grabSavedWeatherEvent = () => {
+  firebaseApi.grabSavedWeather()
+    .then((moviesArray) => {
+      dom.savedDomString(moviesArray);
+    })
+    .catch((error) => {
+      console.error('error in grabSavedWeather', error);
+    });
+};
+
 const navEvents = () => {
+  homeEvent();
   buttonEvent();
   fiveDayBtn();
   searchEvent();
   currentDayBtn();
   saveWeatherEvent();
+  savedForecastBtn();
 };
 
 module.exports = {

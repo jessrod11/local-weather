@@ -20,18 +20,38 @@ const domString = (weatherArray) => {
       weatherString += `<div class="col-sm-6 col-md-4 text-center weather">`;
       weatherString += `<div class="thumbnail">`;
       weatherString += `<div class="caption">`;
+      weatherString += `<img src="https://openweathermap.org/img/w/${weather.weather[0].icon}.png" alt="image of weather">`;
       weatherString += `<h2 class="temperature">Temperature: ${weather.main.temp}</h2>`;
       weatherString += `<h2 class="description">Description: ${weather.weather[0].description}</h2>`;
       weatherString += `<h3 class="pressure"> Air Pressure: ${weather.main.pressure}</h3>`;
       weatherString += `<h3 class="wind">Wind Speed: ${weather.wind.speed}</h3>`;
-      weatherString += `<p><a class="btn btn-primary btn-lg currentdayBtns" role="button">Current Day</a></p>`;
-      weatherString += `<p><a class="btn btn-warning btn-lg addWeatherToSaved" role="button">Save</a></p>`;
+      weatherString += `<p><a class="btn btn-primary btn-lg currentdayBtns" role="button">Current</a><a class="btn btn-warning btn-lg addWeatherToSaved" role="button">Save</a></p>`;
       weatherString += `</div>`;
       weatherString += `</div>`;
       weatherString += `</div>`;
     };
   });
   printToDom('#weather', weatherString);
+};
+
+const savedDomString = (weatherArray, myCollectionMode = false) => {
+  let weatherString = '';
+  weatherArray.forEach((weather) => {
+    weatherString += `<div class="col-sm-6 col-md-4 text-center weather">`;
+    weatherString += `<div class="thumbnail">`;
+    weatherString += `<div class="caption">`;
+    weatherString += `<h2 class="temperature"> ${weather.temperature}</h2>`;
+    weatherString += `<h2 class="description">${weather.condition}</h2>`;
+    weatherString += `<h3 class="pressure">${weather.pressure}</h3>`;
+    weatherString += `<h3 class="wind">Wind Speed: ${weather.wind}</h3>`;
+    if (!myCollectionMode) { // says if myColletion is true, opposite of argument above
+      weatherString += `<p><a class="btn btn-warning" role="button">?</a> <a class="btn btn-danger" role="button">Delete</a></p>`;
+    }
+    weatherString += `</div>`;
+    weatherString += `</div>`;
+    weatherString += `</div>`;
+  });
+  printToDom('#savedWeather', weatherString);
 };
 
 const printToDom = (id, string) => {
@@ -41,4 +61,5 @@ const printToDom = (id, string) => {
 module.exports = {
   domString,
   singleWeatherDom,
+  savedDomString,
 };
