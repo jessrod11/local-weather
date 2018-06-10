@@ -17,3 +17,12 @@ body {
 .navbar-default {
   border-color: #007b4a;
 }
+
+#brandImg {
+  height: 25px;
+}
+
+#brandTxt {
+    margin-top: -23px;
+    margin-left: 40px;
+}
