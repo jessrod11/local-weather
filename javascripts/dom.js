@@ -37,8 +37,8 @@ const domString = (weatherArray) => {
 const savedDomString = (weatherArray, myCollectionMode = false) => {
   let weatherString = '';
   weatherArray.forEach((weather) => {
-    weatherString += `<div class="col-sm-6 col-md-4 text-center weather">`;
-    weatherString += `<div class="thumbnail data-firebase-id="${weather.id}">`;
+    weatherString += `<div class="col-sm-6 col-md-4 text-center">`;
+    weatherString += `<div class="thumbnail weather" data-firebase-id="${weather.id}">`;
     weatherString +=    `<div class="caption">`;
     if (myCollectionMode) {
       weatherString +=    `<p><a class="btn btn-danger deleteWeatherFromCollectionEvent" role="button">X</a></p>`;
@@ -48,9 +48,9 @@ const savedDomString = (weatherArray, myCollectionMode = false) => {
     weatherString +=      `<h3 class="pressure">${weather.pressure}</h3>`;
     weatherString +=      `<h3 class="wind">Wind Speed: ${weather.wind}</h3>`;
     if (!myCollectionMode) { // says if myColletion is true, opposite of argument above
-      weatherString +=    `<p><a class="btn btn-warning" role="button">?</a></p>`;
+      weatherString +=    `<p><a class="btn btn-success" role="button">?</a></p>`;
     } else if (myCollectionMode && !weather.isScarry) {
-      weatherString +=    `<p><a class="btn btn-primary updateMovieToWatched" role="button">I've Watched It</a></p>`;
+      weatherString +=    `<p><a class="btn btn-danger scarryBtnEvent" role="button">Scary!</a></p>`;
     } else {
       weatherString +=    `<p>Not sure yet</p>`;
     }
