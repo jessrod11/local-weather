@@ -68,11 +68,24 @@ const saveWeatherEvent = () => {
 const grabSavedWeatherEvent = () => {
   firebaseApi.grabSavedWeather()
     .then((moviesArray) => {
-      dom.savedDomString(moviesArray);
+      dom.savedDomString(moviesArray, true);
     })
     .catch((error) => {
       console.error('error in grabSavedWeather', error);
     });
+};
+
+const deleteWeatherEvent = () => {
+  $(document).on('click', '.deleteWeatherFromCollectionEvent', (e) => {
+    const weatheroDeleteId = $(e.target).closest('.weather').data('firebaseId');
+    firebaseApi.deleteWeatherfromDb(weatheroDeleteId)
+      .then(() => {
+        grabSavedWeatherEvent();
+      })
+      .catch((error) => {
+        console.error('error in deleteWeatherEvent', error);
+      });
+  });
 };
 
 const navEvents = () => {
@@ -83,6 +96,7 @@ const navEvents = () => {
   currentDayBtn();
   saveWeatherEvent();
   savedForecastBtn();
+  deleteWeatherEvent();
 };
 
 module.exports = {
