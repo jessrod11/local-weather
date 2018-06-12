@@ -1,8 +1,10 @@
 const {grabSavedWeatherEvent,} = require('./events');
+const {setUID,} = require('./firebaseApi');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+      setUID(user.uid);
       $('#input-field').removeClass('hide');
       $('#search-button').removeClass('hide');
       $('#saved-button').removeClass('hide');
@@ -16,6 +18,9 @@ const checkLoginStatus = () => {
       $('#search-button').addClass('hide');
       $('#saved-button').addClass('hide');
       $('#logout-button').addClass('hide');
+      $('.signIn').removeClass('hide');
+      $('#jumboWeather').addClass('hide');
+      $('#savedWeather').addClass('hide');
     }
   });
 };

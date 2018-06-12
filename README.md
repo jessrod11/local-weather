@@ -1,14 +1,15 @@
 # Local Weather App
 
 ## Description
-Created a local weather application using the Open Weather API.
+ I utilized CRUD (crete, read, update, and delete) operations on the firebase database using the Open Weather API. Jquery, grunt, browserify, and bootstrap were the technologies used to make this application. This application allows you to search for your current weather and five day forecast by searching by zipcode. Firebase's authentication was used to allow a user to register and sign into the application. Once signed in one can save weather, delete weather, and state of a forecast appears scary to them. One also has the ability to sign out to the application once they are finished.
 
 ## Screenshot
-![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/home.png)
-![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/current.png)
-![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/fiveDay.png)
 ![Webpage]()
 ![Webpage]()
+![Webpage]()
+![Webpage]()
+![Webpage]()
+
 
 ## How to Run
 1. Clone down this repo and cd into project.
@@ -22,6 +23,7 @@ Created a local weather application using the Open Weather API.
 1. run npm install to install dev dependencies
 1. run grunt to compile the javascript files
 1. run cd .. & http-server to run the application locally
+1. [You can also run by clicking me.] []
 
 
 ## Contributors
