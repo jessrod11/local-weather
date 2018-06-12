@@ -123,15 +123,6 @@ const authEvents = () => {
     const email = $('#inputEmail').val();
     const password = $('#inputPassword').val();
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        $('#input-field').removeClass('hide');
-        $('#search-button').removeClass('hide');
-        $('#saved-button').removeClass('hide');
-        $('#logout-button').removeClass('hide');
-        $('.signIn').addClass('hide');
-        $('#savedWeather').addClass('hide');
-        grabSavedWeatherEvent();
-      })
       .catch((error) => {
         const errorMessage = error.message;
         console.error(errorMessage);
