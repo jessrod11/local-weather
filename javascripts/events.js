@@ -124,6 +124,8 @@ const authEvents = () => {
     const password = $('#inputPassword').val();
     firebase.auth().signInWithEmailAndPassword(email, password)
       .catch((error) => {
+        $('#signin-error-msg').text(error.message);
+        $('#signin-error').removeClass('hide');
         const errorMessage = error.message;
         console.error(errorMessage);
       });
