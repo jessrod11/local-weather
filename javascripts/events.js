@@ -7,12 +7,16 @@ const homeEvent = () => {
     $('#weather').addClass('hide');
     $('#jumboWeather').addClass('hide');
     $('#savedWeather').addClass('hide');
+    // $('#search-button').addClass('hide');
+    // $('#saved-button').addClass('hide');
+    // $('#input-field').addClass('hide');
   });
 };
 
 const buttonEvent = () => {
   $('#search-button').on('click', () => {
     const zipcode = $('#input-field').val();
+    $('.signIn').addClass('hide');
     weather.showCurrentWeatherResults(zipcode);
   });
 };
@@ -29,6 +33,7 @@ const searchEvent = () => {
   $(document).keypress((e) => {
     if (e.key === 'Enter') {
       const zipcode = $('#input-field').val();
+      $('.signIn').addClass('hide');
       weather.showCurrentWeatherResults(zipcode);
     }
   });
@@ -47,6 +52,7 @@ const savedForecastBtn = () => {
     $('#weather').addClass('hide');
     $('#jumboWeather').addClass('hide');
     $('#savedWeather').removeClass('hide');
+    $('.signIn').addClass('hide');
     grabSavedWeatherEvent();
   });
 };
@@ -109,6 +115,37 @@ const updatedWeatherEvent = () => {
   });
 };
 
+const authEvents = () => {
+  $('#signin-btn').click((e) => {
+    e.preventDefault();
+    const email = $('#inputEmail').val();
+    const pass = $('#inputPassword').val();
+    firebase.auth().signInWithEmailandPassword(email, pass)
+      .then((user) => {
+        $('#input-field').removeClass('hide');
+        $('#search-button').removeClass('hide');
+        $('#saved-button').removeClass('hide');
+        $('#saved-button').removeClass('hide');
+        $('#logout-button').removeClass('hide');
+        grabSavedWeatherEvent();
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.error(errorMessage);
+      });
+  });
+
+  $('#register-link').click(() => {
+    $('#login-form').addClass('hide');
+    $('#registration-form').removeClass('hide');
+  });
+
+  $('#signin-link').click(() => {
+    $('#login-form').removeClass('hide');
+    $('#registration-form').addClass('hide');
+  });
+};
+
 const navEvents = () => {
   homeEvent();
   buttonEvent();
@@ -119,6 +156,7 @@ const navEvents = () => {
   savedForecastBtn();
   deleteWeatherEvent();
   updatedWeatherEvent();
+  authEvents();
 };
 
 module.exports = {
