@@ -18,6 +18,9 @@ const checkLoginStatus = () => {
       $('#search-button').addClass('hide');
       $('#saved-button').addClass('hide');
       $('#logout-button').addClass('hide');
+      $('.signIn').removeClass('hide');
+      $('#jumboWeather').addClass('hide');
+      $('#savedWeather').addClass('hide');
     }
   });
 };

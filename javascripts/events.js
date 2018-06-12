@@ -9,9 +9,6 @@ const homeEvent = () => {
     $('#savedWeather').addClass('hide');
     $('#login-form').removeClass('hide');
     $('#registration-form').addClass('hide');
-    // $('#search-button').addClass('hide');
-    // $('#saved-button').addClass('hide');
-    // $('#input-field').addClass('hide');
   });
 };
 
@@ -155,20 +152,11 @@ const authEvents = () => {
   $('#logout-button').click(() => {
     firebase.auth().signOut()
       .then(() => {
-        logOut();
       })
       .catch((error) => {
         console.error(error);
       });
   });
-};
-
-const logOut = () => {
-  $('#weather').addClass('hide');
-  $('#jumboWeather').addClass('hide');
-  $('#savedWeather').addClass('hide');
-  $('#login-form').removeClass('hide');
-  $('#registration-form').addClass('hide');
 };
 
 const navEvents = () => {
