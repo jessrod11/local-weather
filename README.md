@@ -7,8 +7,8 @@ Created a local weather application using the Open Weather API.
 ![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/home.png)
 ![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/current.png)
 ![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/fiveDay.png)
-![Webpage]()
-![Webpage]()
+![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/scary.png)
+![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/signIn.png)
 
 ## How to Run
 1. Clone down this repo and cd into project.
