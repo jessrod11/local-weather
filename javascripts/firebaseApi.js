@@ -1,10 +1,16 @@
 let firebaseConfig = {};
+let uid = '';
 
 const setConfig = (fbConfig) => {
   firebaseConfig = fbConfig;
 };
 
+const setUID = (newUID) => {
+  uid = newUID;
+};
+
 const saveWeather = (newWeather) => {
+  newWeather.uid = uid;
   return new Promise ((resolve, reject) => {
     $.ajax({
       method: 'POST',
@@ -25,7 +31,7 @@ const grabSavedWeather = () => {
     const allWeatherArray = [];
     $.ajax({
       method: 'GET',
-      url: `${firebaseConfig.databaseURL}/weather.json`,
+      url: `${firebaseConfig.databaseURL}/weather.json?orderBy="uid"&equalTo="${uid}"`,
     })
       .done((allWeatherObj) => {
         if (allWeatherObj !== null) {
@@ -58,6 +64,7 @@ const deleteWeatherfromDb = (weatherId) => {
 };
 
 const updateWeatherToScarryInDb = (updatedWeather, weatherId) => {
+  updatedWeather.uid = uid;
   return new Promise ((resolve, reject) => {
     $.ajax({
       method: 'PUT',
@@ -75,6 +82,7 @@ const updateWeatherToScarryInDb = (updatedWeather, weatherId) => {
 
 module.exports = {
   setConfig,
+  setUID,
   saveWeather,
   grabSavedWeather,
   deleteWeatherfromDb,
