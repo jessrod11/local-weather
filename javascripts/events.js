@@ -138,6 +138,24 @@ const authEvents = () => {
     $('#login-form').removeClass('hide');
     $('#registration-form').addClass('hide');
   });
+
+  $('#logout-button').click(() => {
+    firebase.auth().signOut()
+      .then(() => {
+        logOut();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
+};
+
+const logOut = () => {
+  $('#weather').addClass('hide');
+  $('#jumboWeather').addClass('hide');
+  $('#savedWeather').addClass('hide');
+  $('#login-form').removeClass('hide');
+  $('#registration-form').addClass('hide');
 };
 
 const navEvents = () => {
