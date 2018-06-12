@@ -129,6 +129,17 @@ const authEvents = () => {
       });
   });
 
+  $('#register-btn').click((e) => {
+    const email = $('#registerEmail').val();
+    const password = $('#registerPassword').val();
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .catch((error) => {
+        $('#register-error-msg').text(error.message);
+        $('#register-error').removeClass('hide');
+        console.error(error.message);
+      });
+  });
+
   $('#register-link').click(() => {
     $('#login-form').addClass('hide');
     $('#registration-form').removeClass('hide');
