@@ -26,3 +26,12 @@ body {
     margin-top: -23px;
     margin-left: 40px;
 }
+
+.scary {
+  background-color: red;
+  background-image: url('http://31.media.tumblr.com/c5d0128278b68e78cc1c3e8ac436f8fb/tumblr_nvzwcaRIEO1tnzuwfo1_1280.gif');
+}
+
+.stix {
+  max-height: 350px;
+}
