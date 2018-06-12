@@ -7,6 +7,8 @@ const homeEvent = () => {
     $('#weather').addClass('hide');
     $('#jumboWeather').addClass('hide');
     $('#savedWeather').addClass('hide');
+    $('#login-form').removeClass('hide');
+    $('#registration-form').addClass('hide');
     // $('#search-button').addClass('hide');
     // $('#saved-button').addClass('hide');
     // $('#input-field').addClass('hide');
@@ -119,14 +121,15 @@ const authEvents = () => {
   $('#signin-btn').click((e) => {
     e.preventDefault();
     const email = $('#inputEmail').val();
-    const pass = $('#inputPassword').val();
-    firebase.auth().signInWithEmailandPassword(email, pass)
+    const password = $('#inputPassword').val();
+    firebase.auth().signInWithEmailAndPassword(email, password)
       .then((user) => {
         $('#input-field').removeClass('hide');
         $('#search-button').removeClass('hide');
         $('#saved-button').removeClass('hide');
-        $('#saved-button').removeClass('hide');
         $('#logout-button').removeClass('hide');
+        $('.signIn').addClass('hide');
+        $('#savedWeather').addClass('hide');
         grabSavedWeatherEvent();
       })
       .catch((error) => {
@@ -161,4 +164,5 @@ const navEvents = () => {
 
 module.exports = {
   navEvents,
+  grabSavedWeatherEvent,
 };
