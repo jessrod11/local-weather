@@ -4,9 +4,9 @@
 Created a local weather application using the Open Weather API.
 
 ## Screenshot
-![Webpage]()
-![Webpage]()
-![Webpage]()
+![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/home.png)
+![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/current.png)
+![Webpage](https://raw.githubusercontent.com/jessrod11/local-weather/master/img/fiveDay.png)
 ![Webpage]()
 ![Webpage]()
 

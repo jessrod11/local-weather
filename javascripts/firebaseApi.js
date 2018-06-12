@@ -57,9 +57,26 @@ const deleteWeatherfromDb = (weatherId) => {
   });
 };
 
+const updateWeatherToScarryInDb = (updatedWeather, weatherId) => {
+  return new Promise ((resolve, reject) => {
+    $.ajax({
+      method: 'PUT',
+      url: `${firebaseConfig.databaseURL}/weather/${weatherId}.json`,
+      data: JSON.stringify(updatedWeather),
+    })
+      .done((modifiedWeather) => {
+        resolve(modifiedWeather);
+      })
+      .fail((err) => {
+        reject(err);
+      });;
+  });
+};
+
 module.exports = {
   setConfig,
   saveWeather,
   grabSavedWeather,
   deleteWeatherfromDb,
+  updateWeatherToScarryInDb,
 };
