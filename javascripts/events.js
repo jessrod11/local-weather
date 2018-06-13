@@ -14,9 +14,10 @@ const homeEvent = () => {
 
 const buttonEvent = () => {
   $('#search-button').on('click', () => {
-    const zipcode = $('#input-field').val();
-    $('.signIn').addClass('hide');
+    const zipcode = $('#input-field').val() ;
+    $('#jumboWeather').removeClass('hide');
     weather.showCurrentWeatherResults(zipcode);
+    $('.signIn').addClass('hide');
   });
 };
 
@@ -32,8 +33,9 @@ const searchEvent = () => {
   $(document).keypress((e) => {
     if (e.key === 'Enter') {
       const zipcode = $('#input-field').val();
-      $('.signIn').addClass('hide');
+      $('#jumboWeather').removeClass('hide');
       weather.showCurrentWeatherResults(zipcode);
+      $('.signIn').addClass('hide');
     }
   });
 };
@@ -129,6 +131,7 @@ const authEvents = () => {
   });
 
   $('#register-btn').click((e) => {
+    e.preventDefault();
     const email = $('#registerEmail').val();
     const password = $('#registerPassword').val();
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -160,16 +163,16 @@ const authEvents = () => {
 };
 
 const navEvents = () => {
+  authEvents();
   homeEvent();
   buttonEvent();
   fiveDayBtn();
   searchEvent();
   currentDayBtn();
-  saveWeatherEvent();
-  savedForecastBtn();
   deleteWeatherEvent();
   updatedWeatherEvent();
-  authEvents();
+  saveWeatherEvent();
+  savedForecastBtn();
 };
 
 module.exports = {
