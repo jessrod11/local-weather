@@ -31,6 +31,7 @@
 1. run npm install to install dev dependencies
 1. run grunt to compile the javascript files
 1. run cd .. & http-server to run the application locally
+1. You can also run it by clicking this firebase [link](https://jr-localweather.firebaseapp.com)!
 
 ## Contributors
 [Jessica Rodgers](https://github.com/jessrod11)
